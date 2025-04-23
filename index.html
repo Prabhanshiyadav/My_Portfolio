@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhanshi Yadav | AI Developer & Innovator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3490dc;
+            --secondary: #9561e2;
+            --accent: #00f2ff;
+            --dark: #1a202c;
+            --darker: #121827;
+            --light: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-title {
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            display: inline-block;
+        }
+        
+        .section-title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--secondary));
+            border-radius: 4px;
+        }
+        
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tech-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .glow-effect {
+            position: relative;
+        }
+        
+        .glow-effect::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .glow-effect:hover::after {
+            opacity: 0.2;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--secondary));
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -39px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--dark);
+            border: 3px solid var(--accent);
+            z-index: 1;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+        
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(0, 242, 255, 0.2);
+            outline: none;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Neural network animation */
+        #neural-network {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.375rem;
+            background: rgba(255, 255, 255, 0.1);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover {
+            background: rgba(0, 242, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .typing-effect::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .separator {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 3rem auto;
+            width: 50%;
+            border-radius: 2px;
+        }
+        
+        .futuristic-button {
+            position: relative;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .futuristic-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .futuristic-button:hover {
+            color: var(--darker);
+            transform: translateY(-3px);
+        }
+        
+        .futuristic-button:hover::before {
+            width: 100%;
+        }
+        
+        /* Hexagonal grid */
+        .hexagon {
+            position: absolute;
+            width: 100px;
+            height: 110px;
+            background: rgba(255, 255, 255, 0.03);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="neural-network"></canvas>
+    
+    <!-- Hexagonal background elements -->
+    <div class="hexagons-container"></div>
+    
+    <!-- Header Section -->
+    <header class="container mx-auto py-8 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-6 md:mb-0 text-center md:text-left">
+                <div class="overflow-hidden">
+                    <h1 class="orbitron text-4xl md:text-5xl font-bold mb-2 gradient-text opacity-0" id="main-title">
+                        PRABHANSHI YADAV
+                    </h1>
+                </div>
+                <div class="overflow-hidden">
+                    <h2 class="text-xl md:text-2xl mb-4 opacity-0" id="subtitle">
+                        <span class="typing-effect" id="type-text"></span>
+                    </h2>
+                </div>
+                <div class="flex justify-center md:justify-start space-x-3 opacity-0" id="social-links">
+                    <a href="https://www.linkedin.com/in/prabhanshi/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in text-light"></i>
+                    </a>
+                    <a href="https://github.com/Prabhanshiyadav" target="_blank" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github text-light"></i>
+                    </a>
+                    <a href="mailto:prabhanshi04@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope text-light"></i>
+                    </a>
+                    <a href="tel:+919125499798" class="social-icon" aria-label="Phone">
+                        <i class="fas fa-phone-alt text-light"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="relative glow-effect floating opacity-0" id="profile-image">
+                <div class="w-48 h-48 overflow-hidden rounded-full border-4 border-accent bg-darker flex items-center justify-center">
+                    <div class="text-6xl gradient-text">
+                        <img src="abc.jpg" alt="Prabhanshi Yadav" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                <div class="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center bg-accent text-darker">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="absolute -bottom-2 -left-2 w-8 h-8 rounded-full flex items-center justify-center bg-accent text-darker">
+                    <i class="fas fa-brain"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section class="container mx-auto py-8">
+        <h2 class="section-title text-2xl md:text-3xl font-bold mb-8">ABOUT ME</h2>
+        <div class="tech-card opacity-0" id="about-card">
+            <p class="text-lg leading-relaxed mb-4">
+                Aspiring software developer and AI enthusiast with expertise in programming, machine learning, and system design. 
+                Passionate about creating intelligent solutions that drive innovation and efficiency while contributing to impactful 
+                projects and professional growth.
+            </p>
+            <p class="text-lg leading-relaxed">
+                My journey in technology is driven by a fascination with artificial intelligence and its potential to transform industries.
+                I specialize in developing ML models for practical applications while maintaining a strong foundation in full-stack development.
+            </p>
+        </div>
+    </section>
+    
+    <div class="separator"></div>
+    
+    <!-- Skills Section -->
+    <section class="container mx-auto py-8">
+        <h2 class="section-title text-2xl md:text-3xl font-bold mb-8">TECHNICAL ARSENAL</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Programming Languages -->
+            <div class="tech-card opacity-0 skill-card">
+                <h3 class="orbitron text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-code mr-3 text-accent"></i>
+                    Programming Languages
+                </h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>C++</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Python</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Java</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>C</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Frameworks & Tools -->
+            <div class="tech-card opacity-0 skill-card">
+                <h3 class="orbitron text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-tools mr-3 text-accent"></i>
+                    Frameworks & Tools
+                </h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>TensorFlow / PyTorch</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>MERN Stack</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Scikit-learn / Pandas / NumPy</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Figma / UI Design</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Soft Skills -->
+            <div class="tech-card opacity-0 skill-card">
+                <h3 class="orbitron text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-brain mr-3 text-accent"></i>
+                    Soft Skills
+                </h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Problem Solving</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Team Collaboration</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Communication</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Agile Learning</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="95%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Future Skills -->
+            <div class="tech-card opacity-0 skill-card">
+                <h3 class="orbitron text-xl font-semibold mb-4 flex items-center">
+                    <i class="fas fa-rocket mr-3 text-accent"></i>
+                    Futuristic Competencies
+                </h3>
+               
+                   
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>Human-AI Collaboration</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="separator"></div>
+    
+    <!-- Projects Section -->
+    <section class="container mx-auto py-8">
+        <h2 class="section-title text-2xl md:text-3xl font-bold mb-8">INNOVATION LAB</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project 1 -->
+            <div class="tech-card opacity-0 project-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="orbitron text-xl font-semibold">Robot Arm Control</h3>
+                    <div class="text-accent">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                </div>
+                <p class="mb-4">Designed and trained ML models for robotic arm movement prediction. Implemented reinforcement learning algorithms to enhance control efficiency, achieving 92% accuracy in motion prediction.</p>
+                <div class="mb-4">
+                    <span class="badge">TensorFlow</span>
+                    <span class="badge">PyTorch</span>
+                    <span class="badge">Reinforcement Learning</span>
+                    <span class="badge">MATLAB</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-sm text-accent">Oct 2024 - Dec 2024</span>
+                    </div>
+                    <button class="futuristic-button text-sm">
+                        <a href = "https://drive.google.com/file/d/1M2z4tx7JN8Dt8PA8ZZ2SgZgsUbRqQVup/view?usp=sharing" target="_blank" class="text-sm text-accent">Project Details</a>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="tech-card opacity-0 project-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="orbitron text-xl font-semibold">Spam Email Detector</h3>
+                    <div class="text-accent">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                </div>
+                <p class="mb-4">Built an email classification system using NLP and a Multinomial Naive Bayes model to detect spam. The system achieved 97% accuracy and significantly reduced false positives compared to traditional methods.</p>
+                <div class="mb-4">
+                    <span class="badge">Python</span>
+                    <span class="badge">Scikit-learn</span>
+                    <span class="badge">NLTK</span>
+                    <span class="badge">TfidfVectorizer</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-sm text-accent">Feb 2025 - Mar 2025</span>
+                    </div>
+                    <button class="futuristic-button text-sm">
+                        <a href = "https://github.com/Prabhanshiyadav/Spam-email-detector" target="_blank" class="text-sm text-accent">Project Details</a>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="tech-card opacity-0 project-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="orbitron text-xl font-semibold">AI Resume Analyzer</h3>
+                    <div class="text-accent">
+                        <i class="fas fa-file-alt text-2xl"></i>
+                    </div>
+                </div>
+                <p class="mb-4">Designed an AI tool using NLP to match resumes with job requirements, accelerating the recruitment process by 75%. The system uses semantic similarity analysis and keyword extraction to provide accurate matches.</p>
+                <div class="mb-4">
+                    <span class="badge">Python</span>
+                    <span class="badge">NLP</span>
+                    <span class="badge">Machine Learning</span>
+                    <span class="badge">Streamlit</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-sm text-accent">Mar 2025 - Apr 2025</span>
+                    </div>
+                    <button class="futuristic-button text-sm">
+                        <a href = "https://github.com/Prabhanshiyadav/Automated-Resume-Screening-using-AI" target="_blank" class="text-sm text-accent">Project Details</a>
+                    </button>
+                </div>
+            </div>  
+             <!-- Project 1 -->
+             <div class="tech-card opacity-0 project-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="orbitron text-xl font-semibold">WireFrames and Protyping</h3>
+                    <div class="text-accent">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                </div>
+                <p class="mb-4">Designed user experience flows and tested A/B versions to optimize usability. Created clickable prototypes and collaborated with frontend teams to ensure accurate implementation. </p>
+                <div class="mb-4">
+                    <span class="badge">Canva</span>
+                    <span class="badge">Figma</span>
+                    <span class="badge">Style-guide</span>
+                    <span class="badge">Color palette</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-sm text-accent">Oct 2024 - Dec 2024</span>
+                    </div>
+                    <button class="futuristic-button text-sm">
+                        <a href = "https://www.linkedin.com/posts/prabhanshi_uiux-designing-activity-7319068326230441984-vF3g?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD5uUfEBFh6hYN86RDDfr7B4hh4fc6PeDOc" target="_blank" class="text-sm text-accent">Project Details</a>
+                    </button>
+                </div>
+            </div>      
+        </div>
+    </section>
+    
+    <div class="separator"></div>
+    
+    <!-- Experience Section -->
+    <section class="container mx-auto py-8">
+        <h2 class="section-title text-2xl md:text-3xl font-bold mb-8">EXPERIENCE CONTINUUM</h2>
+        <div class="timeline opacity-0" id="experience-timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="tech-card">
+                    <h3 class="orbitron text-xl font-semibold mb-2">Full Stack Development (MERN Stack)</h3>
+                    <p class="text-sm text-accent mb-3">Cipher School | June 2024 - July 2024</p>
+                    <a href = "C:\Users\lenovo\OneDrive\Desktop\certificates\Full stack development using Mern.jpg" target="_blank" class="text-sm text-accent">
+                    <img src="C:\Users\lenovo\OneDrive\Desktop\certificates\Full stack development using Mern.jpg" alt="Cipher School" class="mb-3 rounded-lg shadow-lg" height="100px" width="100px">   
+                </a>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-xs mt-1.5 mr-2 text-accent"></i>
+                            <span>Engineered a dynamic, full-stack blogging platform with seamless front-end back-end integration.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-xs mt-1.5 mr-2 text-accent"></i>
+                            <span>Crafted an engaging and interactive React.js UI for an enhanced user experience.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-xs mt-1.5 mr-2 text-accent"></i>
+                            <span>Developed and optimized a RESTful API using Express.js and Node.js for efficient data handling.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-circle text-xs mt-1.5 mr-2 text-accent"></i>
+                            <span>Integrated MongoDB for scalable data management and implemented robust user authentication for security.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="tech-card">
+
+                    <h3 class="orbitron text-xl font-semibold mb-2">HackTheBlock X LPU Hackathon</h3>
+                    <a href = "C:\Users\lenovo\OneDrive\Desktop\certificates\HackTheBlock X LPU_Prabhanshi yadav.png" target="_blank" class="text-sm text-accent">
+                    <img src="C:\Users\lenovo\OneDrive\Desktop\certificates\HackTheBlock X LPU_Prabhanshi yadav.png" alt="Hackathon" class="mb-3 rounded-lg shadow-lg" height="100px" width="100px">
+                    </a>
+                    <p class="text-sm text-accent mb-3">BlockseBlock | 2024</p>
+                    <p class="mb-3">Participated in an intensive hackathon focused on blockchain technologies, developing innovative solutions for decentralized applications.</p>
+                    <div class="flex flex-wrap">
+                        <span class="badge">Blockchain</span>
+                        <span class="badge">Smart Contracts</span>
+                        <span class="badge">Decentralized Apps</span>
+                        <span class="badge">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="separator"></div>
+    
+    <!-- Education Section -->
+    <section class="container mx-auto py-8">
+        <h2 class="section-title text-2xl md:text-3xl font-bold mb-8">KNOWLEDGE ACQUISITION</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="tech-card opacity-0 education-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="orbitron text-xl font-semibold">Lovely Professional University</h3>
+                    <span class="text-accent">2025 - Present</span>
+                </div>
+                <p class="text-lg mb-2">Bachelor of Technology in Computer Science and Engineering</p>
+                <p class="mb-4">CGPA: 7.0</p>
+                <div>
+                    <h4 class="font-semibold mb-2">Key Coursework:</h4>
+                    <div class="flex flex-wrap">
+                        <span class="badge">Data Structures & Algorithms</span>
+                        <span class="badge">Operating Systems</span>
+                        <span class="badge">Database Management</span>
+                        <span class="badge">Artificial Intelligence</span>
+                        <span class="badge">Computer Networks</span>
+                        <span class="badge">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <div class="separator"></div>
+    <!-- Certifications Section -->
+<section class="container mx-auto py-8">
+    <h2 class="section-title text-2xl md:text-3xl font-bold mb-8">CREDENTIAL MATRIX</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="tech-card opacity-0 cert-card">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-certificate text-accent mr-3"></i>
+                <h3 class="orbitron text-lg font-semibold">AI Foundations</h3>
+            </div>
+            <p class="mb-3">IBM AI Foundations- Coursera</p>
+            <div class="flex justify-between items-center">
+                <a href="C:\Users\lenovo\Downloads\Python for Data Science, AI & Development_page-0001.jpg" target="_blank" class="text-sm text-accent">
+                    <img src="C:\Users\lenovo\Downloads\Python for Data Science, AI & Development_page-0001.jpg" alt="Coursera" class="mb-3 rounded-lg shadow-lg" height="150" width="150">
+                </a>
+                <span class="text-sm text-accent">2025</span>
+            </div>
+        </div>
+
+        <div class="tech-card opacity-0 cert-card">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-certificate text-accent mr-3"></i>
+                <h3 class="orbitron text-lg font-semibold">Full Stack Web Development</h3>
+            </div>
+            <p class="mb-3">Cipher School</p>
+            <div class="flex justify-between items-center">
+                <a href="C:\Users\lenovo\OneDrive\Desktop\certificates\Full stack development using Mern.jpg" target="_blank" class="text-sm text-accent">
+                    <img src="C:\Users\lenovo\OneDrive\Desktop\certificates\Full stack development using Mern.jpg" alt="Cipher School" class="mb-3 rounded-lg shadow-lg" height="165" width="165">   
+                </a>
+                <span class="text-sm text-accent">2024</span>
+            </div>
+        </div>
+        <div class="tech-card opacity-0 cert-card" style="border: 1px solid var(--accent);">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-certificate text-accent mr-3"></i>
+                <h3 class="orbitron text-lg font-semibold gradient-text">Ui/Ux</h3>
+            </div>
+            <p class="mb-3">Great Learning</p>
+            <div class="flex justify-between items-center">
+                <a href="C:\Users\lenovo\OneDrive\Desktop\certificates\Ui-Ux.jpg" target="_blank" class="text-sm text-accent">
+                    <img src="C:\Users\lenovo\OneDrive\Desktop\certificates\Ui-Ux.jpg" alt="Great Learning" class="mb-3 rounded-lg shadow-lg" height="160" width="160">
+                </a>
+                <span class="text-sm text-accent">2024</span>
+            </div>
+        </div>
+
+        <div class="tech-card opacity-0 cert-card">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-certificate text-accent mr-3"></i>
+                <h3 class="orbitron text-lg font-semibold">C++</h3>
+            </div>
+            <p class="mb-3">CodingNinjas</p>
+            <div class="flex justify-between items-center">
+                <a href="C:\Users\lenovo\Downloads\c++,,,,,,,,,,,,ok_page-0001.jpg" target="_blank" class="text-sm text-accent">
+                    <img src="C:\Users\lenovo\Downloads\c++,,,,,,,,,,,,ok_page-0001.jpg" alt="HackerRank" class="mb-3 rounded-lg shadow-lg" height="160" width="160">
+                </a>
+                <span class="text-sm text-accent">2023</span>
+            </div>
+        </div>
+
+        
+
+        <div class="tech-card opacity-0 cert-card">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-certificate text-accent mr-3"></i>
+                <h3 class="orbitron text-lg font-semibold">Pandas</h3>
+            </div>
+            <p class="mb-3">Kaggle</p>
+            <div class="flex justify-between items-center">
+                <a href="C:\Users\lenovo\OneDrive\Desktop\certificates\Pandas, kaggle.png" target="_blank" class="text-sm text-accent">
+                    <img src="C:\Users\lenovo\OneDrive\Desktop\certificates\Pandas, kaggle.png" alt="Kaggle" class="mb-3 rounded-lg shadow-lg" height="180" width="165">
+                </a>
+                <span class="text-sm text-accent">2023</span>
+            </div>
+        </div>
+
+        <div class="tech-card opacity-0 cert-card">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-certificate text-accent mr-3"></i>
+                <h3 class="orbitron text-lg font-semibold">Git and GitHub</h3>
+            </div>
+            <p class="mb-3">Geekster</p>
+            <div class="flex justify-between items-center">
+                <a href="C:\Users\lenovo\Downloads\git and gihub-geekster_page-0001.jpg" target="_blank" class="text-sm text-accent">
+                    <img src="C:\Users\lenovo\Downloads\git and gihub-geekster_page-0001.jpg" alt="Geekster" class="mb-3 rounded-lg shadow-lg" height="160" width="160">
+                </a>
+                <span class="text-sm text-accent">2022</span>
+            </div>
+        </div>
+
+    
+    </div>
+</section>
+
+<div class="separator"></div>
+
+    
+    <!-- Contact Section -->
+    <section class="container mx-auto py-8">
+        <h2 class="section-title text-2xl md:text-3xl font-bold mb-8">COMMUNICATION PORTAL</h2>
+        <div class="tech-card opacity-0" id="contact-card">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="orbitron text-xl font-semibold mb-4">Get In Touch</h3>
+                    <p class="mb-6">I'm always open to discussing new projects, innovative ideas, or opportunities to be part of your vision.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p>Basti, Uttar Pradesh, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p>prabhanshi04@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone-alt text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p>+91 9125499798</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="mb-4">
+                        <label for="name" class="block mb-2 font-semibold">Name</label>
+                        <input type="text" id="name" class="w-full rounded py-2 px-3" placeholder="Your Name">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block mb-2 font-semibold">Email</label>
+                        <input type="email" id="email" class="w-full rounded py-2 px-3" placeholder="Your Email">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="message" class="block mb-2 font-semibold">Message</label>
+                        <textarea id="message" rows="4" class="w-full rounded py-2 px-3" placeholder="Your Message"></textarea>
+                    </div>
+                    
+                    <button class="futuristic-button w-full">
+                        <span class="flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="container mx-auto py-8 text-center">
+        <p>© 2024 Prabhanshi Yadav | AI Developer & Innovator</p>
+        <p class="text-sm mt-2 text-gray-400">Designing the future, one algorithm at a time</p>
+    </footer>
+    
+    <script>
+        // Neural Network Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('neural-network');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let nodes = [];
+            let connections = [];
+            
+            function resizeCanvas() {
+                width = window.innerWidth;
+                height = document.body.scrollHeight;
+                canvas.width = width;
+                canvas.height = height;
+                initNetwork();
+            }
+            
+            function initNetwork() {
+                nodes = [];
+                connections = [];
+                
+                // Create nodes
+                const nodeCount = Math.floor(width * height / 25000);
+                for (let i = 0; i < nodeCount; i++) {
+                    nodes.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 2 + 1,
+                        speed: Math.random() * 0.5 + 0.1,
+                        angle: Math.random() * Math.PI * 2,
+                        color: `rgba(${Math.floor(Math.random() * 100 + 155)}, ${Math.floor(Math.random() * 100 + 155)}, 255, ${Math.random() * 0.5 + 0.2})`
+                    });
+                }
+                
+                // Create connections
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            connections.push({
+                                from: i,
+                                to: j,
+                                opacity: 1 - distance / 150
+                            });
+                        }
+                    }
+                }
+            }
+            
+            function updateNetwork() {
+                // Update node positions
+                for (let i = 0; i < nodes.length; i++) {
+                    nodes[i].x += Math.cos(nodes[i].angle) * nodes[i].speed;
+                    nodes[i].y += Math.sin(nodes[i].angle) * nodes[i].speed;
+                    
+                    // Bounce off edges
+                    if (nodes[i].x < 0 || nodes[i].x > width) {
+                        nodes[i].angle = Math.PI - nodes[i].angle;
+                    }
+                    if (nodes[i].y < 0 || nodes[i].y > height) {
+                        nodes[i].angle = -nodes[i].angle;
+                    }
+                    
+                    // Keep within bounds
+                    nodes[i].x = Math.max(0, Math.min(width, nodes[i].x));
+                    nodes[i].y = Math.max(0, Math.min(height, nodes[i].y));
+                }
+                
+                // Update connections
+                connections = [];
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            connections.push({
+                                from: i,
+                                to: j,
+                                opacity: 1 - distance / 150
+                            });
+                        }
+                    }
+                }
+            }
+            
+            function renderNetwork() {
+                ctx.clearRect(0, 0, width, height);
+                
+                // Draw connections
+                for (let i = 0; i < connections.length; i++) {
+                    const from = nodes[connections[i].from];
+                    const to = nodes[connections[i].to];
+                    const opacity = connections[i].opacity * 0.5;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(from.x, from.y);
+                    ctx.lineTo(to.x, to.y);
+                    ctx.strokeStyle = `rgba(0, 242, 255, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+                
+                // Draw nodes
+                for (let i = 0; i < nodes.length; i++) {
+                    ctx.beginPath();
+                    ctx.arc(nodes[i].x, nodes[i].y, nodes[i].radius, 0, Math.PI * 2);
+                    ctx.fillStyle = nodes[i].color;
+                    ctx.fill();
+                }
+            }
+            
+            function animate() {
+                updateNetwork();
+                renderNetwork();
+                requestAnimationFrame(animate);
+            }
+            
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            animate();
+            
+            // Typing effect
+            const typingElement = document.getElementById('type-text');
+            const titles = ['AI Developer', 'Machine Learning Engineer', 'Software Innovator', 'Full Stack Developer'];
+            let titleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+            
+            function typeWriter() {
+                const currentTitle = titles[titleIndex];
+                
+                if (isDeleting) {
+                    typingElement.textContent = currentTitle.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 50;
+                } else {
+                    typingElement.textContent = currentTitle.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 150;
+                }
+                
+                if (!isDeleting && charIndex === currentTitle.length) {
+                    isDeleting = true;
+                    typingSpeed = 1500; // Pause at end
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    titleIndex = (titleIndex + 1) % titles.length;
+                    typingSpeed = 500; // Pause before new word
+                }
+                
+                setTimeout(typeWriter, typingSpeed);
+            }
+            
+            // Animate elements on scroll
+            function animateOnScroll() {
+                const elements = document.querySelectorAll('.opacity-0');
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.9) {
+                        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Initialize animations
+            document.getElementById('main-title').style.transition = 'opacity 1s ease, transform 1s ease';
+            document.getElementById('main-title').style.opacity = '1';
+            document.getElementById('main-title').style.transform = 'translateY(0)';
+            
+            setTimeout(() => {
+                document.getElementById('subtitle').style.transition = 'opacity 1s ease, transform 1s ease';
+                document.getElementById('subtitle').style.opacity = '1';
+                document.getElementById('subtitle').style.transform = 'translateY(0)';
+                typeWriter();
+            }, 300);
+            
+            setTimeout(() => {
+                document.getElementById('social-links').style.transition = 'opacity 1s ease, transform 1s ease';
+                document.getElementById('social-links').style.opacity = '1';
+                document.getElementById('social-links').style.transform = 'translateY(0)';
+            }, 600);
+            
+            setTimeout(() => {
+                document.getElementById('profile-image').style.transition = 'opacity 1s ease, transform 1s ease';
+                document.getElementById('profile-image').style.opacity = '1';
+                document.getElementById('profile-image').style.transform = 'translateY(0)';
+            }, 900);
+            
+            // Initialize skill bar animations
+            const skillCards = document.querySelectorAll('.skill-card');
+            skillCards.forEach(card => {
+                card.style.transform = 'translateY(20px)';
+            });
+            
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.style.transform = 'translateY(20px)';
+            });
+            
+            const educationCards = document.querySelectorAll('.education-card');
+            educationCards.forEach(card => {
+                card.style.transform = 'translateY(20px)';
+            });
+            
+            const certCards = document.querySelectorAll('.cert-card');
+            certCards.forEach(card => {
+                card.style.transform = 'translateY(20px)';
+            });
+            
+            document.getElementById('about-card').style.transform = 'translateY(20px)';
+            document.getElementById('experience-timeline').style.transform = 'translateY(20px)';
+            document.getElementById('contact-card').style.transform = 'translateY(20px)';
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Initial check
+            
+            // Initialize progress bars after they're visible
+            function initProgressBars() {
+                const progressBars = document.querySelectorAll('.progress-fill');
+                progressBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initProgressBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.skill-card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Create hexagonal background elements
+            const hexContainer = document.querySelector('.hexagons-container');
+            for (let i = 0; i < 15; i++) {
+                const hexagon = document.createElement('div');
+                hexagon.classList.add('hexagon');
+                hexagon.style.top = `${Math.random() * 100}%`;
+                hexagon.style.left = `${Math.random() * 100}%`;
+                hexagon.style.opacity = `${Math.random() * 0.1 + 0.05}`;
+                hexagon.style.transform = `scale(${Math.random() * 1.5 + 0.5})`;
+                hexContainer.appendChild(hexagon);
+            }
+        });
+    </script>
+</body>
+</html>
