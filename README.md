@@ -6,7 +6,7 @@ Welcome to my personal portfolio website — a showcase of my work, skills, and 
 
 ## 🚀 Live Preview
 
-🔗 [View Portfolio](https://prabhanshiyadav.github.io/My_Portfolio/)  
+🔗 [View Portfolio](https://portfolioprabhnashi.netlify.app/)  
 
 
 
