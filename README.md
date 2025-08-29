@@ -1,7 +1,6 @@
 # 🌐 My Portfolio
 Welcome to my personal portfolio website — a showcase of my work, skills, and journey in the world of development, design, and AI.
 
-
 ## 🚀 Live Preview
 
 🔗 [View Portfolio](https://portfolioprabhnashi.netlify.app/)  
@@ -40,5 +39,6 @@ Hi! I’m **Prabhanshi Yadav**, a passionate developer focused on building intel
 
 ## 📌 How to Run Locally 
 ```bash git clone https://github.com/Prabhanshiyadav/My_Portfolio.git cd My_Portfolio open index.html   # Or just open in any browser 
+
 
 
